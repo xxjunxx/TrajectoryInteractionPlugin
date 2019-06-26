@@ -55,6 +55,12 @@ void FTrajInteractionPluginEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& I
 						case 3:
 							TActor->ChangeSize();
 							break;
+						case 4:
+							TActor->Init();
+							break;
+						case 5:
+							TActor->CreateTrajectory();
+							break;
 						default:
 							break;
 						}
@@ -117,6 +123,18 @@ void FTrajInteractionPluginEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& I
 				.AutoHeight()
 				[
 					Locals::MakeButton(LOCTEXT("ChangeSize", "Change Size"), 3)
+				]
+			+ SVerticalBox::Slot()
+				.HAlign(HAlign_Center)
+				.AutoHeight()
+				[
+					Locals::MakeButton(LOCTEXT("Init", "Init"), 4)
+				]
+			+ SVerticalBox::Slot()
+				.HAlign(HAlign_Center)
+				.AutoHeight()
+				[
+					Locals::MakeButton(LOCTEXT("CreateTrajectory", "Create Trajectory"), 5)
 				]
 		];
 		
