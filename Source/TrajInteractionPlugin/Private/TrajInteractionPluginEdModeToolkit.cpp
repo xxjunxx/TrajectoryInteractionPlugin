@@ -56,7 +56,7 @@ void FTrajInteractionPluginEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& I
 							TActor->ChangeSize();
 							break;
 						case 4:
-							TActor->Init();
+							TActor->SetupTrajectoryPath();
 							break;
 						case 5:
 							TActor->CreateTrajectory();
