@@ -41,7 +41,7 @@ public class TrajInteractionPlugin : ModuleRules
 				"InputCore",
 				"UnrealEd",
 				"LevelEditor",
-                "TrajectoryCreator"
+                "Uviz"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

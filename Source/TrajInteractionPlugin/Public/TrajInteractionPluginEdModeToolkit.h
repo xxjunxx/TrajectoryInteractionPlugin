@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "TrajectoryActor.h"
+#include "TrajectorySpawner.h"
 #include "Toolkits/BaseToolkit.h"
 
 class FTrajInteractionPluginEdModeToolkit : public FModeToolkit

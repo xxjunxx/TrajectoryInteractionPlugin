@@ -38,13 +38,13 @@ void FTrajInteractionPluginEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& I
 					LevelActor->Modify();
 				
 
-					if (LevelActor->IsA(ATrajectoryActor::StaticClass()))
+					if (LevelActor->IsA(ATrajectorySpawner::StaticClass()))
 					{
-						ATrajectoryActor* TActor = Cast<ATrajectoryActor>(LevelActor);
+						ATrajectorySpawner* TActor = Cast<ATrajectorySpawner>(LevelActor);
 						switch (buttonValue)
 						{
 						case 0:
-							TActor->ChangeTrajectoryPath();
+							TActor->InitTrajectory();
 							break;
 						case 1:
 							TActor->ChangeMesh();
@@ -56,10 +56,10 @@ void FTrajInteractionPluginEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& I
 							TActor->ChangeSize();
 							break;
 						case 4:
-							TActor->SetupTrajectoryPath();
+							TActor->IncreaseMeshNum(5000);
 							break;
 						case 5:
-							TActor->CreateTrajectory();
+							TActor->ChangePath();
 							break;
 						default:
 							break;
@@ -104,7 +104,7 @@ void FTrajInteractionPluginEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& I
 				.HAlign(HAlign_Center)
 				.AutoHeight()
 				[
-					Locals::MakeButton(LOCTEXT("ChangeTrajectory", "ChangeTrajectory"), 0)
+					Locals::MakeButton(LOCTEXT("InitAndCreateTrajectory", "Init And Create Trajectory"), 0)
 				]
 			+ SVerticalBox::Slot()
 				.HAlign(HAlign_Center)
@@ -128,13 +128,13 @@ void FTrajInteractionPluginEdModeToolkit::Init(const TSharedPtr<IToolkitHost>& I
 				.HAlign(HAlign_Center)
 				.AutoHeight()
 				[
-					Locals::MakeButton(LOCTEXT("Init", "Init"), 4)
+					Locals::MakeButton(LOCTEXT("IncreaseMesh", "Add Mor Meshes"), 4)
 				]
 			+ SVerticalBox::Slot()
 				.HAlign(HAlign_Center)
 				.AutoHeight()
 				[
-					Locals::MakeButton(LOCTEXT("CreateTrajectory", "Create Trajectory"), 5)
+					Locals::MakeButton(LOCTEXT("ChangePath", "Change Path"), 5)
 				]
 		];
 		
